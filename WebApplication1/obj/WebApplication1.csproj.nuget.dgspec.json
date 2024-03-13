@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

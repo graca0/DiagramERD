@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "27qVWZCTBIxKYIgOA1aqaILGH0Y9/1l1fcpDsgPfC9Jg3he+e+o9/JqadoVQJGq9yLVKFDy8zM1uGv4r7bDyrw==",
+  "dgSpecHash": "JFkwvFVHmc8OdOTWqTvjaEFBZZVKwb2IMDZZv4rPIzAA0PBrBZF4OCOnpZzwE9azhLXi/ZcCGTYYl8xG6QYf3Q==",
   "success": true,
-  "projectFilePath": "D:\\Matera\\gk lab1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

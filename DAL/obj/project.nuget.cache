@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cAYzOMK7GZ+bougeo+L5o7VCtuAFZqocM1NwkXqW8T0umCxF3w64PZnDRpGr0NmsxsJbacWzpKftULOCUCS9NA==",
+  "dgSpecHash": "lftEIPWSeROEDFkgUy4kfh0iMmb852tE9NwJHSiPV8KJ0n+Q+QqVxLufRgEpo6vB9h6yRMN3Z7UaHSVIydnOTQ==",
   "success": true,
-  "projectFilePath": "D:\\Matera\\gk lab1\\WebApplication1\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\student\\Desktop\\PS_kol2\\DiagramERD\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
