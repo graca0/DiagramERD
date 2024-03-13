@@ -18,7 +18,7 @@ namespace BBL.ServiceInterfaces
             GroupId
 
         }
-        IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, string filtrByGroup, 
+        IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, int filtrByGroup, 
             string filtrByGroupId, FiltrBy filtrBy, bool showNonActive);
         void RemoveProduct(int productId);
         void ChangeActivityOfProduct(int productId, bool state);

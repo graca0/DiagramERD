@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BBL.DTOModels
 {
-    public class BasketResponse
+    public class BasketRequest
     {
         public int UserId {  get; set; }
         public int ProductId { get; set; }
