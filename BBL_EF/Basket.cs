@@ -21,7 +21,7 @@ namespace BBL_EF
         {
             this.db = dbContext;
         }
-        public void AddProductToBasket(BasketRequest basket)
+        public bool AddProductToBasket(BasketRequest basket)
         {
             var product = db.Product.FirstOrDefault(x => x.Id == basket.ProductId);
             if (product != null && basket.Amount >= 0)
@@ -34,10 +34,12 @@ namespace BBL_EF
                 });
                 db.Update(db.BasketPosition);
                 db.SaveChanges();
+                return true;
             }
+            return false;
         }
 
-        public void ChangeBasketAmount(BasketRequest basket)
+        public bool ChangeBasketAmount(BasketRequest basket)
         {
             var user = db.User.FirstOrDefault(y => y.Id == basket.UserId);
             var bp = db.BasketPosition?
@@ -49,20 +51,22 @@ namespace BBL_EF
                 bp.Amount = basket.Amount;
                 db.Update(bp);
                 db.SaveChanges();
+                return true;
             }
+            return false;
         }
 
-        public void GenerateOrder(int userId)
+        public bool GenerateOrder(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public void Payment(int userId, int payment)
+        public bool Payment(int userId, int payment)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveProductBasket(int productId, int userId)
+        public bool RemoveProductBasket(int productId, int userId)
         {
             var bp = db.BasketPosition?
                 .Where(x => x.ProductId == productId)
@@ -73,7 +77,9 @@ namespace BBL_EF
             {
                 db.Remove(bp);
                 db.SaveChanges();
+                return true;
             }
+            return false;
         }
     }
 }

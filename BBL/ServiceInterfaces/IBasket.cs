@@ -9,11 +9,11 @@ namespace BBL.ServiceInterfaces
 {
     public interface IBasket
     {
-        void AddProductToBasket(BasketRequest basket);
-        void ChangeBasketQuantity(BasketRequest basket);
-        void RemoveProductBasket(int productId, int userId);
-        void GenerateOrder(int userId);
-        void Payment(int userId, int payment);
+        bool AddProductToBasket(BasketRequest basket);
+        bool ChangeBasketAmount(BasketRequest basket);
+        bool RemoveProductBasket(int productId, int userId);
+        bool GenerateOrder(int userId);
+        bool Payment(int userId, int payment);
 
     }
 }

@@ -18,11 +18,11 @@ namespace BBL.ServiceInterfaces
             GroupId
 
         }
-        IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, int filtrByGroup, 
-            string filtrByGroupId, FiltrBy filtrBy, bool showNonActive);
-        void RemoveProduct(int productId);
-        void ChangeActivityOfProduct(int productId, bool state);
-        void AddNewProduct(string name, double price, int groupId);
+        IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, string filtrByGroup, 
+            int filtrByGroupId, FiltrBy filtrBy, bool showNonActive);
+        bool RemoveProduct(int productId);
+        bool ChangeActivityOfProduct(int productId, bool state);
+        bool AddNewProduct(string name, double price, int groupId);
 
     }
 }

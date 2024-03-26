@@ -1,3 +1,7 @@
+using BBL.ServiceInterfaces;
+using BBL_EF;
+using DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<WebshopContext>();
+builder.Services.AddScoped<IProduct, Product>();
 
 var app = builder.Build();
 
