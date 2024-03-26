@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BBL_EF
 {
-    internal class ProductEf : IProduct
+    public class Product : IProduct
     {
         public void AddNewProduct(string name, double price, int groupId)
         {
@@ -39,7 +39,7 @@ namespace BBL_EF
             }
         }
 
-        public IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName,string filtrByGroup, int filtrByGroupId, IProduct.FiltrBy filtrBy, bool showNonActive)
+        public IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, string filtrByGroup, int filtrByGroupId, IProduct.FiltrBy filtrBy, bool showNonActive)
         {
             using (var db = new WebshopContext())
             {
@@ -59,43 +59,40 @@ namespace BBL_EF
                     }
                 }
 
-                if (filtrByGroupId != null)
+                if (filtrByGroupId != 0)
                     product = product.Where(x => x.GroupID == filtrByGroupId).ToList();
 
+                // Sortowanie
                 switch (filtrBy)
                 {
                     case IProduct.FiltrBy.Name:
-                        if (desc)
-                            product = product.OrderByDescending(x => x.Name).ToList();
-                        else
-                            product = product.OrderBy(x => x.Name).ToList();
+                        product = desc ? product.OrderByDescending(x => x.Name).ToList() : product.OrderBy(x => x.Name).ToList();
                         break;
-                    //TODO TUTAJ SKONCZYLEM //GRACA
-                    //case IProduct.FiltrBy.GroupName:
-                    //    if (desc)
-                    //        product = product.OrderByDescending(x => x.Name).ToList();
-                    //    else
-                    //        product = product.OrderBy(x => x.Name).ToList();
-                    //    break;
+                    case IProduct.FiltrBy.GroupName:
+                        product = desc ? product.OrderByDescending(x => db.ProductGroup.FirstOrDefault(g => g.Id == x.GroupID).Name).ToList()
+                                       : product.OrderBy(x => db.ProductGroup.FirstOrDefault(g => g.Id == x.GroupID).Name).ToList();
+                        break;
                     case IProduct.FiltrBy.GroupId:
-                        if (desc)
-                            product = product.OrderByDescending(x => x.GroupID).ToList();
-                        else
-                            product = product.OrderBy(x => x.GroupID).ToList();
+                        product = desc ? product.OrderByDescending(x => x.GroupID).ToList() : product.OrderBy(x => x.GroupID).ToList();
                         break;
                 }
             }
             return null;
         }
 
-        public IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, int filtrByGroup, string filtrByGroupId, IProduct.FiltrBy filtrBy, bool showNonActive)
-        {
-            throw new NotImplementedException();
-        }
-
         public void RemoveProduct(int productId)
         {
-            throw new NotImplementedException();
+
+            using (var db = new WebshopContext())
+            {
+                var productToRemove = db.Product.FirstOrDefault(p => p.Id == productId);
+                if (productToRemove != null)
+                {
+                    db.Product.Remove(productToRemove);
+                    db.SaveChanges();
+                }
+
+            }
         }
     }
 }

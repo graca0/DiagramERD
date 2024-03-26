@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj": {}
+    "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj": {
+    "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj",
-        "projectName": "BBL",
-        "projectPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj",
+        "projectUniqueName": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj",
+        "projectName": "BBL_DB",
+        "projectPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj",
         "packagesPath": "C:\\Users\\Graca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\obj\\",
+        "outputPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "Z:\\VS\\SDK\\NuGetPackages"
@@ -54,6 +54,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
