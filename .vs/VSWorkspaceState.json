@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DAL",
+    "\\DAL\\obj",
+    "\\DAL\\obj\\Release",
+    "\\DAL\\obj\\Release\\net6.0",
+    "\\Model",
+    "\\Model\\obj",
+    "\\WebApplication1",
+    "\\WebApplication1\\bin",
+    "\\WebApplication1\\bin\\Release",
+    "\\WebApplication1\\bin\\Release\\net6.0"
+  ],
+  "SelectedNode": "\\WebApplication1\\bin\\Release\\net6.0",
+  "PreviewInSolutionExplorer": false
+}
