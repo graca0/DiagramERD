@@ -332,3 +332,5 @@ C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\bin\Debug\net6.0\Mode
 C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\bin\Debug\net6.0\BBL_EF.dll
 C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\bin\Debug\net6.0\BBL_EF.pdb
 C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\obj\Debug\net6.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\bin\Debug\net6.0\BBL_DB.dll
+C:\Users\Graca\Documents\GitHub\DiagramERD\WebApplication1\bin\Debug\net6.0\BBL_DB.pdb

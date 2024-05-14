@@ -17,9 +17,12 @@ namespace Model
         public int? ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product? Product { get; set; }
+
+        public int UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public User User { get; set; }
         #endregion
 
-        public ICollection<User>? Users { get; set; }
         public int Amount { get; set; }
     }
 }

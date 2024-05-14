@@ -1,5 +1,6 @@
 using BBL.ServiceInterfaces;
 using BBL_EF;
+using BBL_DB;
 using DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<WebshopContext>();
-builder.Services.AddScoped<IProduct, Product>();
+builder.Services.AddScoped<IProduct, BBL_DB.Product>();
+builder.Services.AddScoped<IBasket, BBL_DB.Basket>();
 
 var app = builder.Build();
 

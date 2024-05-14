@@ -23,12 +23,8 @@ namespace Model
         public UserGroup? UserGroups { get; set; }
         #endregion
 
-        #region BasketPosition
-        public int? BasketPositionId { get; set; }
-        [ForeignKey(nameof(BasketPositionId))]
-        public BasketPosition? BasketPosition { get; set; }
-        #endregion
-        
+        public ICollection<BasketPosition>? BasketPositions { get; set; }
+
         public ICollection<Order>? Orders { get; set; }
     }
 }

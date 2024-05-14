@@ -9,6 +9,7 @@
       "WebApplication1/1.0.0": {
         "dependencies": {
           "BBL": "1.0.0",
+          "BBL_DB": "1.0.0",
           "BBL_EF": "1.0.0",
           "DAL": "1.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
@@ -2635,6 +2636,15 @@
           "BBL.dll": {}
         }
       },
+      "BBL_DB/1.0.0": {
+        "dependencies": {
+          "BBL": "1.0.0",
+          "DAL": "1.0.0"
+        },
+        "runtime": {
+          "BBL_DB.dll": {}
+        }
+      },
       "BBL_EF/1.0.0": {
         "dependencies": {
           "BBL": "1.0.0",
@@ -4257,6 +4267,11 @@
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
     "BBL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BBL_DB/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

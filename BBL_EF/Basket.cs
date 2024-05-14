@@ -26,13 +26,14 @@ namespace BBL_EF
             var product = db.Product.FirstOrDefault(x => x.Id == basket.ProductId);
             if (product != null && basket.Amount >= 0)
             {
+                var list = db.User.Where(x => x.Id == basket.UserId).ToList();
                 db.BasketPosition.Add(new Model.BasketPosition()
                 {
                     ProductId = basket.ProductId,
-                    Users = db.User.Where(x => x.Id == basket.UserId).ToList(),
+                    UserId = basket.UserId,
                     Amount = basket.Amount
                 });
-                db.Update(db.BasketPosition);
+                db.Update(product);
                 db.SaveChanges();
                 return true;
             }
@@ -44,7 +45,7 @@ namespace BBL_EF
             var user = db.User.FirstOrDefault(y => y.Id == basket.UserId);
             var bp = db.BasketPosition?
                 .Where(x => x.ProductId == basket.ProductId)
-                .Where(x => x.Users.FirstOrDefault(y => y.Id == basket.UserId) != null)
+                .Where(x => x.User.Id == basket.UserId)
                 .FirstOrDefault();
             if (bp != null && basket.Amount >= 0)
             {
@@ -70,7 +71,7 @@ namespace BBL_EF
         {
             var bp = db.BasketPosition?
                 .Where(x => x.ProductId == productId)
-                .Where(x => x.Users.FirstOrDefault(y => y.Id == userId) != null)
+                .Where(x => x.User.Id == userId)
                 .FirstOrDefault();
 
             if (bp != null)

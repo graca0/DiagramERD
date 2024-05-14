@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BBL\BBL.csproj" />
+    <ProjectReference Include="..\BBL_DB\BBL_DB.csproj" />
     <ProjectReference Include="..\BBL_EF\BBL_EF.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>

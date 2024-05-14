@@ -19,7 +19,7 @@ namespace DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.
-                UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ZadanieDomoweBazyDanych;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+                UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ef_Sprawozdanie;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,9 @@ namespace DAL
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<BasketPosition>()
-                .HasMany(x=>x.Users)
-                .WithOne(x=>x.BasketPosition)
-                .HasForeignKey(x=>x.BasketPositionId)
+                .HasOne(x=>x.User)
+                .WithMany(x=>x.BasketPositions)
+                .HasForeignKey(x=>x.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()

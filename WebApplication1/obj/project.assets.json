@@ -3930,6 +3930,20 @@
           "bin/placeholder/BBL.dll": {}
         }
       },
+      "BBL_DB/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BBL": "1.0.0",
+          "DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BBL_DB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BBL_DB.dll": {}
+        }
+      },
       "BBL_EF/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -11468,6 +11482,11 @@
       "path": "../BBL/BBL.csproj",
       "msbuildProject": "../BBL/BBL.csproj"
     },
+    "BBL_DB/1.0.0": {
+      "type": "project",
+      "path": "../BBL_DB/BBL_DB.csproj",
+      "msbuildProject": "../BBL_DB/BBL_DB.csproj"
+    },
     "BBL_EF/1.0.0": {
       "type": "project",
       "path": "../BBL_EF/BBL_EF.csproj",
@@ -11487,6 +11506,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BBL >= 1.0.0",
+      "BBL_DB >= 1.0.0",
       "BBL_EF >= 1.0.0",
       "DAL >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
@@ -11528,6 +11548,9 @@
           "projectReferences": {
             "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj": {
               "projectPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL\\BBL.csproj"
+            },
+            "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj": {
+              "projectPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_DB\\BBL_DB.csproj"
             },
             "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_EF\\BBL_EF.csproj": {
               "projectPath": "C:\\Users\\Graca\\Documents\\GitHub\\DiagramERD\\BBL_EF\\BBL_EF.csproj"

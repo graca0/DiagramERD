@@ -36,9 +36,14 @@ namespace DAL.Migrations
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("BasketPosition");
                 });
@@ -147,9 +152,6 @@ namespace DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("BasketPositionId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -166,8 +168,6 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BasketPositionId");
 
                     b.HasIndex("UserGroupId");
 
@@ -197,7 +197,15 @@ namespace DAL.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("Model.User", "User")
+                        .WithMany("BasketPositions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Model.Order", b =>
@@ -242,24 +250,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Model.User", b =>
                 {
-                    b.HasOne("Model.BasketPosition", "BasketPosition")
-                        .WithMany("Users")
-                        .HasForeignKey("BasketPositionId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Model.UserGroup", "UserGroups")
                         .WithMany("Users")
                         .HasForeignKey("UserGroupId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("BasketPosition");
-
                     b.Navigation("UserGroups");
-                });
-
-            modelBuilder.Entity("Model.BasketPosition", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Model.Order", b =>
@@ -281,6 +277,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Model.User", b =>
                 {
+                    b.Navigation("BasketPositions");
+
                     b.Navigation("Orders");
                 });
 

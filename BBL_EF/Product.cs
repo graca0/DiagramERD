@@ -1,6 +1,7 @@
 ﻿using BBL.DTOModels;
 using BBL.ServiceInterfaces;
 using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,10 +21,10 @@ namespace BBL_EF
             {
                 using (var db = new WebshopContext())
                 {
-                    var biggestId = db.Product.Max(x => x.Id);
+
+                     
                     db.Product.Add(new Model.Product
                     {
-                        Id = biggestId,
                         Name = name,
                         Price = price,
                         GroupID = groupId,
@@ -50,18 +51,18 @@ namespace BBL_EF
             } catch (Exception ex) { return false; }
         }
 
-        public IEnumerable<ProductResponse> GetProducts(bool desc, string filtrByName, string filtrByGroup, int filtrByGroupId, IProduct.FiltrBy filtrBy, bool showNonActive)
+        public IEnumerable<ProductResponse> GetProducts(bool? desc, string? filtrByName, string? filtrByGroup, int? filtrByGroupId, IProduct.FiltrBy? filtrBy, bool? showNonActive)
         {
             using (var db = new WebshopContext())
             {
                 var product = db.Product.ToList();
-                if (!showNonActive)
+                if (showNonActive!=null && !showNonActive.Value)
                     product = product.Where(x => x.IsActive).ToList();
 
-                if (filtrByName != null || filtrByName != "")
-                    product.Where(x => x.Name.Contains(filtrByName)).ToList();
+                if (filtrByName != null && filtrByName != "")
+                    product = product.Where(x => x.Name.Contains(filtrByName)).ToList();
 
-                if (filtrByGroup != null || filtrByGroup != "")
+                if (filtrByGroup != null && filtrByGroup != "")
                 {
                     var grId = db.ProductGroup.Where(x => x.Name == filtrByGroup).FirstOrDefault();
                     if (grId != null)
@@ -70,25 +71,47 @@ namespace BBL_EF
                     }
                 }
 
-                if (filtrByGroupId != 0)
+                if (filtrByGroupId != null &&  filtrByGroupId != 0)
                     product = product.Where(x => x.GroupID == filtrByGroupId).ToList();
-
+                
+                bool sortType;
+                if(!desc.HasValue)
+                    sortType = false;
+                else
+                    sortType = desc.Value;
                 // Sortowanie
                 switch (filtrBy)
                 {
                     case IProduct.FiltrBy.Name:
-                        product = desc ? product.OrderByDescending(x => x.Name).ToList() : product.OrderBy(x => x.Name).ToList();
+                        product = sortType ? product.OrderByDescending(x => x.Name).ToList() : product.OrderBy(x => x.Name).ToList();
                         break;
                     case IProduct.FiltrBy.GroupName:
-                        product = desc ? product.OrderByDescending(x => db.ProductGroup.FirstOrDefault(g => g.Id == x.GroupID).Name).ToList()
+                        product = sortType ? product.OrderByDescending(x => db.ProductGroup.FirstOrDefault(g => g.Id == x.GroupID).Name).ToList()
                                        : product.OrderBy(x => db.ProductGroup.FirstOrDefault(g => g.Id == x.GroupID).Name).ToList();
                         break;
                     case IProduct.FiltrBy.GroupId:
-                        product = desc ? product.OrderByDescending(x => x.GroupID).ToList() : product.OrderBy(x => x.GroupID).ToList();
+                        product = sortType ? product.OrderByDescending(x => x.GroupID).ToList() : product.OrderBy(x => x.GroupID).ToList();
                         break;
                 }
+                var productResponses = new List<ProductResponse>();
+
+                foreach (var p in product)
+                {
+                    var productResponse = new ProductResponse
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        Price = p.Price,
+                        GroupID = p.GroupID,
+                        GroupName = db.ProductGroup.FirstOrDefault(x => x.Id == p.GroupID) != null ? db.ProductGroup.FirstOrDefault(x => x.Id == p.GroupID).Name : ""
+                    };
+
+                    productResponses.Add(productResponse);
+                }
+
+                return productResponses;
             }
-            return null;
+            
         }
 
         public bool RemoveProduct(int productId)

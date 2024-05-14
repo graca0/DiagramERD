@@ -19,20 +19,20 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetProducts(bool desc, string filtrByName, string filtrByGroup,
-            int filtrByGroupId, FiltrBy filtrBy, bool showNonActive)
+        public IActionResult GetProducts(bool? desc, string? filtrByName = null, string? filtrByGroup = null,
+    int? filtrByGroupId = null, FiltrBy? filtrBy = null, bool? showNonActive = null)
         {
-            var p = product.GetProducts(desc,filtrByName, filtrByGroup, filtrByGroupId,filtrBy, showNonActive);
-            if(p == null)
+            var p = product.GetProducts(desc, filtrByName, filtrByGroup, filtrByGroupId, filtrBy, showNonActive);
+            if (p == null)
                 return NotFound();
             return Ok(p);
         }
-        [HttpDelete("{id}")]
+        [HttpDelete("{productId}")]
         public bool RemoveProduct(int? productId)
         {
             return productId.HasValue ? product.RemoveProduct(productId.Value) : false;
         }
-        [HttpPut("{id}/ChangeActivity")]
+        [HttpPut("{productId}/ChangeActivity")]
         public bool ChangeActivityOfProduct(int? productId, bool state) 
         {
             return productId.HasValue ? product.ChangeActivityOfProduct(productId.Value, state) : false;
